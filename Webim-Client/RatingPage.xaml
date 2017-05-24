@@ -1,0 +1,25 @@
+﻿<ContentDialog
+    x:Class="Webim_Client.RatingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Webim_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Rate Operator"
+    PrimaryButtonText="Rate"  
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+        <!-- Content body -->
+        <TextBlock x:Name="body" Style="{StaticResource MessageDialogContentStyle}" TextWrapping="Wrap" Text="Пожалуйста, оценине работу оператора"/>
+        <RadioButton x:Name="one" Content="Плохо" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stars" Checked="RadioButton_Checked"/>
+        <RadioButton x:Name="two" Content="Не удовлетворительно" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stars" Checked="RadioButton_Checked"/>
+        <RadioButton x:Name="three" Content="Удовлетворительно" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stars" Checked="RadioButton_Checked"/>
+        <RadioButton x:Name="four" Content="Хорошо" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stars" Checked="RadioButton_Checked"/>
+        <RadioButton x:Name="five" Content="Отлично" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GroupName="stars" Checked="RadioButton_Checked"/>
+    </StackPanel>
+</ContentDialog>
