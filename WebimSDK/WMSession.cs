@@ -77,11 +77,24 @@ namespace WebimSDK
             }
         }
 
+        public WMSession(Uri hostUri, string location, WMVisitorExt visitorExt)
+            : base(hostUri, location)
+        {
+            _RestClient = new RestClient(Host());
+            isGettingDelta = false;
+            UseDispatcher = true;
+            if (visitorExt != null)
+            {
+                _visitorFields = visitorExt.JsonEncoded();
+            }
+        }
+
         #region Delta
 
         private async Task Initialize()
         {
-            await _Storage.InitializeForAccount(AccountName);
+            var accountName = AccountName ?? (HostUri != null ? HostUri.ToString() : null);
+            await _Storage.InitializeForAccount(accountName);
             if (!StringExtensions.ExistsAndEquals(_Storage.Location, Location))
             {
                 _Storage.Location = Location;
