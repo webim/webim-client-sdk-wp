@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>WebimSDK</id>
+    <version>2.2.0.6</version>
+    <title>WebimSDK</title>
+    <authors>Webim</authors>
+    <owners>Webim</owners>
+    <projectUrl>https://webim.ru/integration/mobile-sdk/windows-phone-sdk-howto/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WebimSDK for WP8.1, UWP</description>
+    <tags>webim webimsdk</tags>
+  </metadata>
+</package>

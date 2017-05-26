@@ -26,9 +26,18 @@ namespace WebimSDK
             _RestClient = new RestClient(Host());
         }
 
+        public WMOfflineSession(Uri hostUri, string location, string token, string platform) : base(hostUri, location)
+        {
+            Token = token;
+            Platfom = platform;
+
+            _RestClient = new RestClient(Host());
+        }
+
         public async Task Initialize()
         {
-            await _SharedStorage.InitializeForAccount(AccountName);
+            var accountName = AccountName ?? (HostUri != null ? HostUri.ToString() : null);
+            await _SharedStorage.InitializeForAccount(accountName);
 
             foreach (var chat in _SharedStorage.ChatsList)
             {

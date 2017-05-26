@@ -40,6 +40,9 @@ namespace WebimSDK
         }
 
         public string AccountName { get; set; }
+
+        public Uri HostUri { get; set; }
+
         public string Location { get; set; }
 
         private string DomainURLFormat = "https://{0}.webim.ru";
@@ -52,8 +55,18 @@ namespace WebimSDK
             Location = location;
         }
 
+        public WMBaseSession(Uri hostUri, string location)
+        {
+            HostUri = hostUri;
+            Location = location;
+        }
+
         public string Host()
         {
+            if (HostUri != null)
+            {
+                return HostUri.ToString();
+            }
             if (AccountName == null || AccountName.Length == 0)
             {
                 return null;
@@ -76,9 +89,9 @@ namespace WebimSDK
             {
                 return null;
             }
-            string filePath = string.Format("{0}/{1}", Host(), attachmentPath);
-            Uri uri = new Uri(filePath);
-            return uri;
+
+            Uri hostUri = new Uri(Host());
+            return new Uri(hostUri, attachmentPath);
         }
 
         internal static WMSessionError ErrorFromString(string value)
