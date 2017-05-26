@@ -89,9 +89,9 @@ namespace WebimSDK
             {
                 return null;
             }
-            string filePath = string.Format("{0}/{1}", Host(), attachmentPath);
-            Uri uri = new Uri(filePath);
-            return uri;
+
+            Uri hostUri = new Uri(Host());
+            return new Uri(hostUri, attachmentPath);
         }
 
         internal static WMSessionError ErrorFromString(string value)

@@ -95,7 +95,8 @@ namespace WebimSDK
                 {
                     return null;
                 }
-                return new Uri(Session.Host() + "/" + Avatar);
+                Uri hostUri = new Uri(Session.Host());
+                return new Uri(hostUri, Avatar);
             }
             private set { }
         }
